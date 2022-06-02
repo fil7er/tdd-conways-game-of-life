@@ -33,5 +33,26 @@ export function drawPatterninBoard(board, pattern) {
       board[y][x] = "o";
     }
   }
-  return board;
+  let actualPos= {};
+  actualPos.y = initY;
+  actualPos.x = initX;
+  return [board, actualPos, pattern[0]];
+}
+
+export function movePatterinBoard(board, patternPosition, dim) {
+  let initX= patternPosition.x+1; // only Forward
+  let initY= patternPosition.y;
+  for (let y = initY; y < dim.y + initY; y++) {
+    for (let x = initX; x < dim.x + initX; x++) {
+      board[y][x] = "o";
+    }
+  }
+  //Remove initial position
+  for (let y = initY; y < dim.y + initY; y++) {
+    board[y][patternPosition.x] = "b";
+  }
+  let actualPos= {};
+  actualPos.y = initY;
+  actualPos.x = initX;
+  return [board, actualPos, dim];
 }
