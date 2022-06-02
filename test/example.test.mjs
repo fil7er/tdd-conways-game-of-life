@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { createBoard } from "../src/example.mjs";
+import { createBoard, parseRle } from "../src/example.mjs";
 
 describe("Game of life", () => {
   it("Board array length of 16", () => {
@@ -17,5 +17,8 @@ describe("Game of life", () => {
     expect(createBoard(16).length).to.equal(16);
   });
 
+  it("Parsed block.rle", () => {
+    expect(parseRle()[1]).to.equal("2o$2o!");
+  });
 
 });
