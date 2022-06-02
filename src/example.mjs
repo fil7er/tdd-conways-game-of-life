@@ -21,13 +21,17 @@ export function parseRle(){
   let dim = {};
   dim.x = parseInt(dataDim.split("x = ")[1].split(",")[0]);
   dim.y = parseInt(dataDim.split("y = ")[1]);
-  let blockPattern = Array.from(Array(2), () => new Array(2));
   let pattern = data[1];
-  for (let y=0; y<dim.y; y++){
-    for(let x=0; x<dim.x; x++){
-      blockPattern[y][x] = "o";
+  return [dim, pattern];
+}
+
+export function drawPatterninBoard(board, pattern) {
+  let initX= Math.floor(board.length / 2)-1;
+  let initY= Math.floor(board.length / 2)-1;
+  for (let y = initY; y < pattern[0].y + initY; y++) {
+    for (let x = initX; x < pattern[0].x + initX; x++) {
+      board[y][x] = "o";
     }
   }
-
-  return [blockPattern, pattern];
+  return board;
 }

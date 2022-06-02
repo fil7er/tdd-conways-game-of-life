@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { createBoard, parseRle } from "../src/example.mjs";
+import { createBoard, parseRle, drawPatterninBoard } from "../src/example.mjs";
 
 describe("Game of life", () => {
   it("Board array length of 16", () => {
@@ -20,5 +20,16 @@ describe("Game of life", () => {
   it("Parsed block.rle", () => {
     expect(parseRle()[1]).to.equal("2o$2o!");
   });
+
+
+  it("Draw pattern in the middle of board", () => {
+    let board = drawPatterninBoard(createBoard(16), parseRle());
+    expect(board[7][7]).to.equal("o");
+    expect(board[8][8]).to.equal("o");
+    expect(board[7][8]).to.equal("o");
+    expect(board[8][7]).to.equal("o");
+  });
+
+  
 
 });
