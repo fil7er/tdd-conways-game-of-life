@@ -56,3 +56,34 @@ export function movePatterinBoard(board, patternPosition, dim) {
   actualPos.x = initX;
   return [board, actualPos, dim];
 }
+
+export function exportBoardToRle(board, dim) {
+
+  let bBeforeO = 0;
+  let oBeforeB = 0;
+  let finalString = "";
+
+  for(let y=0; y< board.length; y++){
+    for(let x=0; x< board.length; x++){
+        if(board[y][x] == "b"){
+         if(board[0][0] != "o") {finalString = finalString+bBeforeO.toString()+"b";}
+          oBeforeB = 0;
+          bBeforeO++;}
+        else if(board[y][x] == "o"){
+          finalString = finalString+bBeforeO.toString()+"b";
+          bBeforeO = 0;
+      }
+    }
+    finalString = finalString+"$";
+  }
+  finalString = finalString+"!";
+
+  if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
+  fs.writeFileSync(
+    "output.rle", "#N Output\n" +
+    "x = " +dim.x +
+      ", y = " +dim.y +
+      ", rule = B3/S23\n" +
+      finalString
+  );
+}

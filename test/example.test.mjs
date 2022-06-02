@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { createBoard, parseRle, drawPatterninBoard, movePatterinBoard } from "../src/example.mjs";
+import { createBoard, parseRle, drawPatterninBoard, movePatterinBoard, exportBoardToRle } from "../src/example.mjs";
 
 describe("Game of life", () => {
   it("Board array length of 16", () => {
@@ -41,6 +41,11 @@ describe("Game of life", () => {
     expect(display[8][8]).to.equal("o"); 
   });
 
-  
+  it("Saving to RLE", () => {
+    let board = drawPatterninBoard(createBoard(16), parseRle());
+    let movedBoard = movePatterinBoard(board[0], board[1], board[2]);
+    let display = movedBoard[0];
+    let execute = exportBoardToRle(movedBoard, movedBoard[2]);
+  });
 
 });
