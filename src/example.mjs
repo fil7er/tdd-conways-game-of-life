@@ -79,6 +79,10 @@ export function exportBoardToRle(board, dim) {
   }
   finalString = finalString+"!";
 
+  for(let y=0; y< board.length; y++){
+    for(let x=0; x< board.length; x++){
+
+    }}
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
   fs.writeFileSync(
