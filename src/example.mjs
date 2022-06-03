@@ -86,13 +86,21 @@ export function exportBoardToRle(board, dim) {
       switch(board[y][x]){
         case 'b' :  {
          if(numO > 0) finalString2 = finalString2+numO.toString()+"o";
-         if(x == board.length-1 && numB > 0) finalString2 = finalString2+numB.toString()+"b";
+         if(x == board.length-1 && numB > 0){
+            numB++;
+           finalString2 = finalString2+numB.toString()+"b";
+           break;
+          }
          numB++;
          break;
         }
         case 'o' : {
           if(numB > 0) finalString2 = finalString2+numB.toString()+"b";
-          if(x == board.length-1 && numO > 0) finalString2 = finalString2+numB.toString()+"b";
+          if(x == board.length-1 && numO > 0) {
+            numO++;
+            finalString2 = finalString2+numB.toString()+"b";
+            break;
+          }
           numO++;
           break;
         }
