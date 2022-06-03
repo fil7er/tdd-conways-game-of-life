@@ -85,11 +85,11 @@ export function exportBoardToRle(board, dim) {
     for(let x=0; x< board.length; x++){
       switch(board[y][x]){
         case 'b' :  {
-         if(numO > 0) finalString = finalString+bBeforeO.toString()+"b";
+         if(numO > 0) finalString = finalString+numO.toString()+"b";
          numB++;
         }
         case 'o' : {
-          if(numB > 0) finalString = finalString+bBeforeO.toString()+"b";
+          if(numB > 0) finalString = finalString+numB.toString()+"b";
           numO++;
         }
       }
