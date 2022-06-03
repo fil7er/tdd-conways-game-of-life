@@ -62,6 +62,7 @@ export function exportBoardToRle(board, dim) {
   let bBeforeO = 0;
   let oBeforeB = 0;
   let finalString = "";
+  let finalString2 = "";
 
   for(let y=0; y< board.length; y++){
     for(let x=0; x< board.length; x++){
