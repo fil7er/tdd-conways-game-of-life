@@ -87,10 +87,12 @@ export function exportBoardToRle(board, dim) {
         case 'b' :  {
          if(numO > 0) finalString2 = finalString2+numO.toString()+"o";
          numB++;
+         break;
         }
         case 'o' : {
           if(numB > 0) finalString2 = finalString2+numB.toString()+"b";
           numO++;
+          break;
         }
       }
     }
@@ -104,6 +106,6 @@ export function exportBoardToRle(board, dim) {
     "x = " +dim.x +
       ", y = " +dim.y +
       ", rule = B3/S23\n" +
-      finalString
+      finalString2
   );
 }
