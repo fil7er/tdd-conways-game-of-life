@@ -93,7 +93,9 @@ export function exportBoardToRle(board, dim) {
           numO++;
         }
       }
-    }}
+    }
+    finalString2 = finalString2+"$";
+  }
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
   fs.writeFileSync(
