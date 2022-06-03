@@ -88,6 +88,10 @@ export function exportBoardToRle(board, dim) {
          if(numO > 0) finalString = finalString+bBeforeO.toString()+"b";
          numB++;
         }
+        case 'o' : {
+          if(numB > 0) finalString = finalString+bBeforeO.toString()+"b";
+          numO++;
+        }
       }
     }}
 
