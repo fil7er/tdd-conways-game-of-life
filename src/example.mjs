@@ -66,9 +66,10 @@ export function exportBoardToRle(board, dim) {
   for(let y=0; y< board.length; y++){
     for(let x=0; x< board.length; x++){
         if(board[y][x] == "b"){
+          if(oBeforeB > 0) {finalString = finalString+oBeforeB.toString()+"o";}
           bBeforeO++; oBeforeB = 0;}
         else if(board[y][x] == "o"){
-          if(bBeforeO > 0) finalString = finalString+bBeforeO.toString()+"b";
+          if(bBeforeO > 0) {finalString = finalString+bBeforeO.toString()+"b";}
           bBeforeO = 0;
           oBeforeB++;
       }
@@ -76,6 +77,7 @@ export function exportBoardToRle(board, dim) {
     finalString = finalString+"$";
   }
   finalString = finalString+"!";
+
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
   fs.writeFileSync(
