@@ -98,6 +98,8 @@ export function exportBoardToRle(board, dim) {
         }
       }
     }
+    numB=0; 
+    numO=0;
     finalString2 = finalString2+"$";
   }
   finalString2 = finalString2+"!";
