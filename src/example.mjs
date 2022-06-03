@@ -58,7 +58,7 @@ export function movePatterinBoard(board, patternPosition, dim) {
 }
 
 export function exportBoardToRle(board, dim) {
-  let finalString2 = "";
+  let finalString = "";
 
   let numO = 0;
   let numB = 0;
@@ -67,12 +67,12 @@ export function exportBoardToRle(board, dim) {
       switch(board[y][x]){
         case 'b' :  {
          if(numO > 0) {
-          finalString2 = finalString2+numO.toString()+"o";
+          finalString = finalString+numO.toString()+"o";
           numO=0;
          }
          if(x == board.length-1 && numB > 0){
             numB++;
-           finalString2 = finalString2+numB.toString()+"b";
+           finalString = finalString+numB.toString()+"b";
            break;
           }
          numB++;
@@ -80,12 +80,12 @@ export function exportBoardToRle(board, dim) {
         }
         case 'o' : {
           if(numB > 0) {
-            finalString2 = finalString2+numB.toString()+"b";
+            finalString = finalString+numB.toString()+"b";
             numB=0;
           }
           if(x == board.length-1 && numO > 0) {
             numO++;
-            finalString2 = finalString2+numB.toString()+"o";
+            finalString = finalString+numB.toString()+"o";
             break;
           }
           numO++;
@@ -95,9 +95,9 @@ export function exportBoardToRle(board, dim) {
     }
     numB=0; 
     numO=0;
-    finalString2 = finalString2+"$";
+    finalString = finalString+"$";
   }
-  finalString2 = finalString2+"!";
+  finalString = finalString+"!";
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
   fs.writeFileSync(
@@ -105,6 +105,6 @@ export function exportBoardToRle(board, dim) {
     "x = " +dim.x +
       ", y = " +dim.y +
       ", rule = B3/S23\n" +
-      finalString2
+      finalString
   );
 }
