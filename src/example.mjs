@@ -58,26 +58,7 @@ export function movePatterinBoard(board, patternPosition, dim) {
 }
 
 export function exportBoardToRle(board, dim) {
-
-  let bBeforeO = 0;
-  let oBeforeB = 0;
-  let finalString = "";
   let finalString2 = "";
-
-  for(let y=0; y< board.length; y++){
-    for(let x=0; x< board.length; x++){
-        if(board[y][x] == "b"){
-          if(oBeforeB > 0) {finalString = finalString+oBeforeB.toString()+"o";}
-          bBeforeO++; oBeforeB = 0;}
-        else if(board[y][x] == "o"){
-          if(bBeforeO > 0) {finalString = finalString+bBeforeO.toString()+"b";}
-          bBeforeO = 0;
-          oBeforeB++;
-      }
-    }
-    finalString = finalString+"$";
-  }
-  finalString = finalString+"!";
 
   let numO = 0;
   let numB = 0;
