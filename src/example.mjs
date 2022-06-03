@@ -96,6 +96,7 @@ export function exportBoardToRle(board, dim) {
     }
     finalString2 = finalString2+"$";
   }
+  finalString2 = finalString2+"!";
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
   fs.writeFileSync(
