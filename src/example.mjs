@@ -81,7 +81,9 @@ export function exportBoardToRle(board, dim) {
 
   for(let y=0; y< board.length; y++){
     for(let x=0; x< board.length; x++){
-
+      switch(board[y][x]){
+        
+      }
     }}
 
   if (fs.existsSync("output.rle")) fs.unlinkSync("output.rle");
