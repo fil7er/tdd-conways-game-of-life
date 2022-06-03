@@ -107,4 +107,5 @@ export function exportBoardToRle(board, dim) {
       ", rule = B3/S23\n" +
       finalString
   );
+  return finalString;
 }

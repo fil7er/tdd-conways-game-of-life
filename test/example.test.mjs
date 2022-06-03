@@ -46,6 +46,7 @@ describe("Game of life", () => {
     let movedBoard = movePatterinBoard(board[0], board[1], board[2]);
     let display = movedBoard[0];
     let execute = exportBoardToRle(movedBoard[0], movedBoard[2]);
+    expect(execute).to.equal("16b$16b$16b$16b$16b$16b$16b$8b2o6b$8b2o6b$16b$16b$16b$16b$16b$16b$16b$!");
   });
 
 });
