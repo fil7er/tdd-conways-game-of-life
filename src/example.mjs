@@ -66,12 +66,11 @@ export function exportBoardToRle(board, dim) {
   for(let y=0; y< board.length; y++){
     for(let x=0; x< board.length; x++){
         if(board[y][x] == "b"){
-         if(board[0][0] != "o") {finalString = finalString+bBeforeO.toString()+"b";}
-          oBeforeB = 0;
-          bBeforeO++;}
+          bBeforeO++; oBeforeB = 0;}
         else if(board[y][x] == "o"){
-          finalString = finalString+bBeforeO.toString()+"b";
+          if(bBeforeO > 0) finalString = finalString+bBeforeO.toString()+"b";
           bBeforeO = 0;
+          oBeforeB++;
       }
     }
     finalString = finalString+"$";
