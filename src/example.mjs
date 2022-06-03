@@ -79,10 +79,12 @@ export function exportBoardToRle(board, dim) {
   }
   finalString = finalString+"!";
 
+  let numO = 0;
+  let numB = 0;
   for(let y=0; y< board.length; y++){
     for(let x=0; x< board.length; x++){
       switch(board[y][x]){
-        
+
       }
     }}
 
