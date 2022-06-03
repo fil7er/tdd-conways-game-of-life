@@ -45,7 +45,7 @@ describe("Game of life", () => {
     let board = drawPatterninBoard(createBoard(16), parseRle());
     let movedBoard = movePatterinBoard(board[0], board[1], board[2]);
     let display = movedBoard[0];
-    let execute = exportBoardToRle(movedBoard, movedBoard[2]);
+    let execute = exportBoardToRle(movedBoard[0], movedBoard[2]);
   });
 
 });
